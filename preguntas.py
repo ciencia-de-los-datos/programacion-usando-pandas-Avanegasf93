@@ -176,13 +176,13 @@ def pregunta_10():
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
     data = json.loads(tbl0.groupby("_c1")["_c2"].apply(list).to_json())
-    newTbl = { "_c0":[], "_c1": [] } 
+    newTbl10 = { "_c0":[], "_c1": [] } 
     for key in data:
         data[key] = sorted(data[key])
-        newTbl["_c0"].append(key)
-        newTbl["_c1"].append(":".join(str(x) for x in data[key]))
+        newTbl10["_c0"].append(key)
+        newTbl10["_c1"].append(":".join(str(x) for x in data[key]))
     
-    return pd.DataFrame(newTbl)
+    return pd.DataFrame(newTbl10)
 
 
 def pregunta_11():
@@ -203,13 +203,13 @@ def pregunta_11():
     """
 
     data = json.loads(tbl1.groupby("_c0")["_c4"].apply(list).to_json())
-    newTbl = { "_c0":[], "_c1": [] } 
+    newTbl11 = { "_c0":[], "_c1": [] } 
     for key in data:
         data[key] = sorted(data[key])
-        newTbl["_c0"].append(key)
-        newTbl["_c1"].append(",".join(str(x) for x in data[key]))
+        newTbl11["_c0"].append(key)
+        newTbl11["_c1"].append(",".join(str(x) for x in data[key]))
     
-    return pd.DataFrame(newTbl)
+    return pd.DataFrame(newTbl11)
 
 
 def pregunta_12():
@@ -226,20 +226,18 @@ def pregunta_12():
     37   37                    eee:0,fff:2,hhh:6
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
-    """
-    import json
-    from numpy import apply_along_axis  
+    """ 
 
     tbl2["_c5"]=tbl2["_c5a"].astype(str) + ":" + tbl2["_c5b"].astype(str)
 
     data = json.loads(tbl2.groupby("_c0")["_c5"].apply(list).to_json())
-    newTbl = { "_c0":[], "_c1": [] } 
+    newTbl12 = { "_c0":[], "_c1": [] } 
     for key in data:
         data[key] = sorted(data[key])
-        newTbl["_c0"].append(key)
-        newTbl["_c1"].append(",".join(str(x) for x in data[key]))
+        newTbl12["_c0"].append(key)
+        newTbl12["_c1"].append(",".join(str(x) for x in data[key]))
     
-    return pd.DataFrame(newTbl)
+    return pd.DataFrame(newTbl12)
 
 
 def pregunta_13():
