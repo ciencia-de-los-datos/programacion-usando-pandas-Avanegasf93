@@ -175,12 +175,12 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    data = json.loads(tbl0.groupby("_c1")["_c2"].apply(list).to_json())
-    newTbl10 = { "_c1":[], "_c2":[] } 
-    for key in data:
-        data[key] = sorted(data[key])
+    data10 = json.loads(tbl0.groupby("_c1")["_c2"].apply(list).to_json())
+    newTbl10 = {"_c1":[], "_c2":[]} 
+    for key in data10:
+        data10[key] = sorted(data10[key])
         newTbl10["_c1"].append(key)
-        newTbl10["_c2"].append(":".join(str(x) for x in data[key]))
+        newTbl10["_c2"].append(":".join(str(x) for x in data10[key]))
     
     return pd.DataFrame(newTbl10)
 
