@@ -203,11 +203,11 @@ def pregunta_11():
     """
 
     data = json.loads(tbl1.groupby("_c0")["_c4"].apply(list).to_json())
-    newTbl11 = { "_c0":[], "_c1": [] } 
+    newTbl11 = { "_c0":[], "_c4": [] } 
     for key in data:
         data[key] = sorted(data[key])
         newTbl11["_c0"].append(key)
-        newTbl11["_c1"].append(",".join(str(x) for x in data[key]))
+        newTbl11["_c4"].append(",".join(str(x) for x in data[key]))
     
     return pd.DataFrame(newTbl11)
 
@@ -231,11 +231,11 @@ def pregunta_12():
     tbl2["_c5"]=tbl2["_c5a"].astype(str) + ":" + tbl2["_c5b"].astype(str)
 
     data = json.loads(tbl2.groupby("_c0")["_c5"].apply(list).to_json())
-    newTbl12 = { "_c0":[], "_c1": [] } 
+    newTbl12 = { "_c0":[], "_c5": [] } 
     for key in data:
         data[key] = sorted(data[key])
         newTbl12["_c0"].append(key)
-        newTbl12["_c1"].append(",".join(str(x) for x in data[key]))
+        newTbl12["_c5"].append(",".join(str(x) for x in data[key]))
     
     return pd.DataFrame(newTbl12)
 
